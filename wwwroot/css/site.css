@@ -1,0 +1,56 @@
+.dt-center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    display: none;
+}
+
+.validation-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.validation-summary li {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    height: 100px;
+}
+footer {
+    height: 70px;
+}
+main {
+    min-height: calc(100vh - 100px - 70px);
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(248, 249, 250);
+}
+
+.fix-color {
+    color: #fff !important;
+}
+.fix-color:hover {
+    color: #000000 !important;
+}
+
+.fix-table th, .fix-table td {
+    width: 150px;
+}
+
+/* boton filtrar inmuebles */
+.width130px{
+    width: 130px;
+  }

@@ -1,0 +1,57 @@
+@model InmobiliariaVargasHuancaTorrez.Models.Pago
+@{
+    ViewData["Title"] = "Detalle del Pago";
+}
+<div class="container my-4">
+    <h2>Detalle del Pago</h2>
+    <table class="table mb-4 table-striped fix-table">
+        <tr>
+            <th>Contrato</th>
+            <td>@Model.Id_Contrato</td>
+        </tr>
+        <tr>
+            <th>Número de Pago</th>
+            <td>@Model.NumeroPago</td>
+        </tr>
+        <tr>
+            <th>Fecha de Pago</th>
+            <td>@Model.FechaPago.ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <th>Detalle</th>
+            <td>@Model.Detalle</td>
+        </tr>
+        <tr>
+            <th>Importe</th>
+            <td>$ @Model.Importe </td>
+        </tr>
+        <tr>
+            <th>Estado</th>
+            <td>@(Model.Estado ? "Pagado" : "Anulado")</td>
+        </tr>
+
+    </table>
+
+    @if (User.IsInRole("Administrador") && ViewBag.Auditorias.Count > 0)
+    {
+        <h2>Auditoria del Pago</h2>
+        @foreach (var item in ViewBag.Auditorias)
+        {
+            <table class="table table-striped mb-4 fix-table">
+                <tr>
+                    <th>Usuario</th>
+                    <td>@item.Usuario.Nombre @item.Usuario.Apellido</td>
+                </tr>
+                <tr>
+                    <th>Accion</th>
+                    <td>@item.Accion</td>
+                </tr>
+                <tr>
+                    <th>Fecha</th>
+                    <td> @item.FechaHora.ToString("dd/MM/yyyy - HH:mm")</td>
+                </tr>
+            </table>
+        }
+    }
+    <a href="/Pagos/Index/@Model.Id_Contrato" class="btn btn-primary">Volver</a>
+</div>
